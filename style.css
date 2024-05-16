@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Sparten', sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #dfa579;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+
+.container{
+    width: 90%;
+    max-width: 450px;
+}
+
+.head{
+    color: rgba(0, 0, 0, 0.700);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+.password-container{
+    position: relative;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.30) 0%, rgba(0,0,0,0.30) 100%), radial-gradient(at top center, rgb(255, 255, 255, .80) 0%, rgba(0, 0, 0, 0.80) 120%) #989898;
+    border-radius: 1rem;
+    border: .2rem solid  rgba(255, 255, 255, 0.30);
+    margin: 1rem 0;
+    padding-top: .35rem;
+}
+
+.password-holder{
+    width: 100%;
+    background: transparent;
+    padding: 1.15rem 1rem;
+    color: rgb(29, 29, 29);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 30px;
+    letter-spacing: 1px;
+    padding-right: 3.25rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.password-holder::placeholder{
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 30px;
+    color: rgb(255, 255, 142);
+    text-transform: uppercase;
+    transform: translateY(-50%);
+}
+
+.password-container button{
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    transform: translatey(-50%);
+}
+
+.details{
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.30) 0%, rgba(0,0,0,0.30) 100%), radial-gradient(at top center, rgb(255, 255, 255, .80) 0%, rgba(0, 0, 0, 0.80) 120%);
+    border-radius: 1rem;
+    padding: 2rem;
+    border-bottom: .2rem solid rgba(255, 255, 255, 0.30);
+}
+
+.lenth-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pass-length{
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.pass-num{
+    color: rgb(255, 255, 142);
+    font-size: 1.5rem;
+}
+
+.strength-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.strength-container p{
+    color: #000;
+    font-size: 1.5rem;   
+}
+
+.indicator{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+}
+
+.generate-btn{
+    width: 100%;
+    padding: 1rem 0;
+    background-color: rgb(50, 50, 50);
+    text-align: center;
+    border-radius: .7rem;
+    outline: none;
+    border-bottom: .2rem solid black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.check{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 0 1rem;
+}
+
+.check input{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    border-radius: .35rem;
+}
+
+.check input:checked{
+    background-color: rgb(80, 80, 80);
+}
+
+.check input:checked::before{
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 600;
+    left: 70%;
+    top: -3px;
+    transform: translateX(-50%) translatey(-20%);
+}
+
+.check label{
+    color: rgba(0, 0, 0, 0.90);
+    font-size: 1.25rem;
+    letter-spacing: .75px;
+}
+
+.slider{
+    appearance: none;
+    width: 100%;
+    height: .75rem;
+    cursor: pointer;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #434343 0%, black 100%);
+    border: none;
+    outline: none;
+    z-index: -1;
+}
+
+.copy-msg{
+    position: absolute;
+    background: linear-gradient(to right, #434343 0%, black 100%);
+    color: whitesmoke;
+    font-size: 1.25rem;
+    top: -35px;
+    left: -25px;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all 250ms ease-in-out;
+}
+
+.copy-msg.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slider::-webkit-slider-thumb{
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 142);
+    cursor: pointer;
+    margin-top: -3px;
+    box-shadow: 0px 0px 20px rgba(248, 248, 138, 0.5);
+    transition: all 1s ease-in;
+}
+
+.slider:focus{
+    outline: 2px solid rgb(255, 255, 142);
+}
+
+.slider::-webkit-slider-thumb:hover{
+    outline: 1px solid rgb(255, 255, 142);
+    background-color: #60696b;
+    box-shadow: 0 0 25px 5px rgba(248, 248, 138, 0.8);
+}
+
+.slider::-moz-range-thumb{
+    position: relative;
+    z-index: 1 !important;
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 142);
+    cursor: pointer;
+    margin-top: -3px;
+    box-shadow: 0px 0px 20px rgba(248, 248, 138, 0.5);
+}
+
+.slider::-moz-range-thumb:hover{
+    outline: 1px solid rgb(255, 255, 142);
+    background-color: #60696b;
+    box-shadow: 0 0 25px 5px rgba(248, 248, 138, 0.8);
+}
